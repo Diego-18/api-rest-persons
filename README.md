@@ -24,9 +24,9 @@ GET     http://localhost:5000/Persons             //Bring all records
 
 POST    http://localhost:5000/Persons             // Create new records
 
-PUT     http://localhost:5000/Person/{id}         // Update record existing
+PUT     http://localhost:5000/Persons/{id}         // Update record existing
 
-DELETE  http://localhost:5000/Person/{id}         // Delete record existing
+DELETE  http://localhost:5000/Persons/{id}         // Delete record existing
 ```
 
 ## Technologies used
