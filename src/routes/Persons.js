@@ -19,10 +19,11 @@ router.get('/', (req, res) => {
 // path: /api/persons
 // POST: creates a new person
 router.post('/', (req, res) => {
-    const { name, lastname, document, email, phone, file, birthdate } = req.body;
-    if(name && lastname && document && email && phone && birthdate) {
-        createPerson({ name, lastname, document, email, phone, file, birthdate })
+    const { name, lastname, document, email, phone, file, birthdate, documenttype } = req.body;
+    if(name && lastname && document && email && phone && birthdate && documenttype){
+        createPerson({ name, lastname, document, email, phone, file, birthdate, documenttype })
         .then(person => {
+            console.log(person);
             res.json(person);
         })
         .catch(error => {
@@ -39,9 +40,9 @@ router.post('/', (req, res) => {
 // PUT: returns a person by id
 router.put('/:id', (req, res) => {
     const { id } = req.params;
-    const { name, lastname, document, email, phone, file, birthdate } = req.body;
-    if(name || lastname || document || email || phone || file || birthdate){
-        updatePerson({ id, name, lastname, document, email, phone, file, birthdate })
+    const { name, lastname, document, email, phone, file, birthdate, documenttype } = req.body;
+    if(name || lastname || document || email || phone || file || birthdate || documenttype){
+        updatePerson({ id, name, lastname, document, email, phone, file, birthdate, documenttype })
         .then(person => {
             res.json(person);
         })
