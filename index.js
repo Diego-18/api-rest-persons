@@ -1,7 +1,17 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const morgan = require('morgan');
 require('dotenv').config();
+
+// Origins
+const whiteList = ['http://localhost:3000', 'http://localhost:3001'];
+
+// proxy
+// app.use(cors());  // enable cors for all origins
+app.use(cors({
+    origin: whiteList
+}));
 
 //settings
 app.set('port', process.env.PORT || 5000);
